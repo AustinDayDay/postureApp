@@ -61,7 +61,7 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
         SM.registerListener(this, mySensor, SensorManager.SENSOR_DELAY_NORMAL);
 
         Button startServiceButton = findViewById(R.id.startServiceButton);
-//        Button stopServiceButton = findViewById(R.id.stopServiceButton);
+        Button stopServiceButton = findViewById(R.id.stopServiceButton);
 
         //Assign TextView
         xText = (TextView) findViewById(R.id.xText);
@@ -80,14 +80,14 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
             }
         });
 
-//        stopServiceButton.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                // Stop the foreground service
-//                Intent stopIntent = new Intent(MainActivity.this, MyForegroundService.class);
-//                stopService(stopIntent);
-//            }
-//        });
+        stopServiceButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Stop the foreground service
+                Intent stopIntent = new Intent(MainActivity.this, MyForegroundService.class);
+                stopService(stopIntent);
+            }
+        });
     }
 
     private void startForegroundService(){
