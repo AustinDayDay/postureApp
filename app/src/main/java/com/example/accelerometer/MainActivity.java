@@ -28,8 +28,8 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
     @Override
     public void onSensorChanged(SensorEvent event) {
         xText.setText("X " + Math.round(event.values[0]));
-        yText.setText("Y " + Math.round(event.values[1]));
-        zText.setText("Z " + Math.round(event.values[2]));
+//        yText.setText("Y " + Math.round(event.values[1]));
+//        zText.setText("Z " + Math.round(event.values[2]));
 
         if(event.values[0] < 6) {
             vibrator.vibrate(1000);
@@ -61,12 +61,12 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
         SM.registerListener(this, mySensor, SensorManager.SENSOR_DELAY_NORMAL);
 
         Button startServiceButton = findViewById(R.id.startServiceButton);
-        Button stopServiceButton = findViewById(R.id.stopServiceButton);
+//        Button stopServiceButton = findViewById(R.id.stopServiceButton);
 
         //Assign TextView
         xText = (TextView) findViewById(R.id.xText);
-        yText = (TextView) findViewById(R.id.yText);
-        zText = (TextView) findViewById(R.id.zText);
+//        yText = (TextView) findViewById(R.id.yText);
+//        zText = (TextView) findViewById(R.id.zText);
 
 
 
@@ -80,14 +80,14 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
             }
         });
 
-        stopServiceButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // Stop the foreground service
-                Intent stopIntent = new Intent(MainActivity.this, MyForegroundService.class);
-                stopService(stopIntent);
-            }
-        });
+//        stopServiceButton.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                // Stop the foreground service
+//                Intent stopIntent = new Intent(MainActivity.this, MyForegroundService.class);
+//                stopService(stopIntent);
+//            }
+//        });
     }
 
     private void startForegroundService(){
