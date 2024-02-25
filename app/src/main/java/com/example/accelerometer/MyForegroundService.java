@@ -96,15 +96,14 @@ public class MyForegroundService extends Service implements SensorEventListener 
 
     @Override
     public void onSensorChanged(SensorEvent event) {
-//        xText.setText("X " + Math.round(event.values[0]));
-//        yText.setText("Y " + Math.round(event.values[1]));
-//        zText.setText("Z " + Math.round(event.values[2]));
 
 
         // Your existing logic
         if(abs(event.values[0]) < 6) {
             vibrator.vibrate(1000);
             Log.d("Logging Vibration", "Vibration activated!!");
+//            MainActivity::setColor(0);
+
         }
         Log.d("Logging Vibration", "X val: " + event.values[0]);
     }

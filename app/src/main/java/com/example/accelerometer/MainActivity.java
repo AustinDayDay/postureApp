@@ -28,15 +28,25 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
     @Override
     public void onSensorChanged(SensorEvent event) {
         xText.setText("X " + Math.round(event.values[0]));
-//        yText.setText("Y " + Math.round(event.values[1]));
-//        zText.setText("Z " + Math.round(event.values[2]));
 
-        if(event.values[0] < 6) {
+        if(Math.abs(event.values[0]) < 6) {
             vibrator.vibrate(1000);
-
-        }
+            findViewById(R.id.rlVar1).setBackgroundColor(getResources().getColor(R.color.warning));
+        }else findViewById(R.id.rlVar1).setBackgroundColor(getResources().getColor(R.color.black));
     }
 
+//public void setColor(int mode){
+//        if (mode == 0){
+//            findViewById(R.id.rlVar1).setBackgroundColor(getResources().getColor(R.color.warning));
+//        }
+//        else{
+//            findViewById(R.id.rlVar1).setBackgroundColor(getResources().getColor(R.color.black));
+//        }
+//}
+//
+//public void vib(){
+//    vibrator.vibrate(1000);
+//}
 
     @Override
     public void onAccuracyChanged(Sensor sensor, int accuracy) {
