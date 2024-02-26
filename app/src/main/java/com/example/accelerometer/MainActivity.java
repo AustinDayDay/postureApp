@@ -30,7 +30,7 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
         xText.setText("X " + Math.round(event.values[0]));
 
         if(Math.abs(event.values[0]) < 6) {
-            vibrator.vibrate(1000);
+            vibrator.vibrate(100);
             findViewById(R.id.rlVar1).setBackgroundColor(getResources().getColor(R.color.warning));
         }else findViewById(R.id.rlVar1).setBackgroundColor(getResources().getColor(R.color.black));
     }
